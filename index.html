@@ -3,67 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Amor em Grãos</title>
+<title>Amor em Grãos Café</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 
-body{background:#000;color:#fff;}
+body{background:#0b0f0c;color:#fff;}
 
 /* HEADER */
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
-background:#000;
-border-bottom:2px solid #7ED957;
+padding:15px 30px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+z-index:1000;
 }
 
 .logo{
 color:#7ED957;
 font-weight:800;
-font-size:18px;
+font-size:20px;
 }
 
 nav{
 display:flex;
-gap:15px;
+gap:20px;
 }
 
 nav a{
 color:#fff;
 text-decoration:none;
 font-weight:600;
+transition:0.3s;
 }
 
-/* HERO LIMPO */
+nav a:hover{
+color:#7ED957;
+}
+
+/* HERO */
 .hero{
-height:90vh;
-background:url('banner.png') center/cover no-repeat;
+height:100vh;
+background:url('banner.jpg') center/cover no-repeat;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
 }
 
-/* BOTÃO CENTRAL */
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
+}
+
 .btn{
+margin-top:20px;
 padding:15px 30px;
 background:#7ED957;
 border:none;
-font-weight:bold;
 border-radius:8px;
+font-weight:bold;
 cursor:pointer;
 }
 
-/* WHATSAPP REAL */
+/* SERVIÇOS */
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* PROVA SOCIAL */
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+font-size:20px;
+}
+
+/* CTA */
+.cta{
+background:#7ED957;
+color:#000;
+padding:60px 20px;
+text-align:center;
+}
+
+.cta button{
+margin-top:15px;
+padding:15px 30px;
+background:#000;
+color:#fff;
+border:none;
+cursor:pointer;
+}
+
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:20px;
 right:20px;
+bottom:20px;
 z-index:1000;
 }
 
@@ -71,24 +158,23 @@ z-index:1000;
 width:60px;
 }
 
-/* FORM OVERLAY */
+/* FORM */
 .overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 display:none;
 justify-content:flex-start;
-z-index:999;
+z-index:9999;
 }
 
 .overlay.active{
 display:flex;
 }
 
-/* FORM SLIDE */
 .form-box{
 width:320px;
 height:100%;
@@ -100,10 +186,6 @@ animation:slide 0.4s forwards;
 @keyframes slide{
 from{transform:translateX(-100%);}
 to{transform:translateX(0);}
-}
-
-.form-box h2{
-margin-bottom:10px;
 }
 
 .form-box input,
@@ -121,43 +203,61 @@ padding:12px;
 background:#7ED957;
 border:none;
 font-weight:bold;
-cursor:pointer;
 }
 
 /* RESPONSIVO */
 @media(max-width:600px){
-.logo{font-size:16px;}
-nav a{font-size:14px;}
+.hero h1{font-size:28px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- MENU -->
 <header>
 <div class="logo">☕ Amor em Grãos</div>
-
 <nav>
 <a href="#">Início</a>
-<a href="#">Serviços</a>
-<a href="#">Contato</a>
+<a href="#servicos">Serviços</a>
+<a href="#contato">Contato</a>
 </nav>
 </header>
 
-<!-- HERO LIMPO -->
 <section class="hero">
+<div class="hero-content">
+<h1>Máquinas de Café Profissionais</h1>
+<p>Venda, locação e manutenção especializada</p>
 <button class="btn" onclick="abrirForm()">Solicitar Orçamento</button>
+</div>
 </section>
 
-<!-- WHATSAPP -->
+<section class="section" id="servicos">
+<h2>🔥 Nossos Serviços</h2>
+
+<div class="cards">
+<div class="card">☕ Manutenção especializada</div>
+<div class="card">🏪 Venda das melhores máquinas</div>
+<div class="card">💼 Locação prática e econômica</div>
+</div>
+
+<div class="stats">
+<div class="stat">+500 clientes atendidos</div>
+<div class="stat">+5 anos de experiência</div>
+<div class="stat">Atendimento rápido</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>📢 Quer aumentar o nível do seu negócio?</h2>
+<p>Tenha máquinas profissionais no seu estabelecimento</p>
+<button onclick="abrirForm()">Solicitar agora</button>
+</section>
+
 <a href="https://wa.me/5561991057795" target="_blank" class="whatsapp">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
 
-<!-- FORM -->
 <div class="overlay" id="overlay" onclick="fecharForm(event)">
-
 <div class="form-box" onclick="event.stopPropagation()">
 
 <h2>Solicitar Orçamento</h2>
@@ -169,7 +269,6 @@ nav a{font-size:14px;}
 <button onclick="enviar()">Enviar via WhatsApp</button>
 
 </div>
-
 </div>
 
 <script>
@@ -177,7 +276,7 @@ function abrirForm(){
 document.getElementById("overlay").classList.add("active");
 }
 
-function fecharForm(e){
+function fecharForm(){
 document.getElementById("overlay").classList.remove("active");
 }
 
