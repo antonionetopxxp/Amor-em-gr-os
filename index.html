@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amor em Grãos Café</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+
+body{background:#0a0a0a;color:#fff;overflow-x:hidden;}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:url('banner.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:40px;
+    text-shadow:0 0 20px #000;
+}
+
+.btn{
+    margin-top:20px;
+    padding:15px 30px;
+    background:#7ED957;
+    color:#000;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+/* SERVIÇOS */
+.section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+}
+
+/* FORM SLIDE */
+.form-box{
+    position:fixed;
+    top:0;
+    left:-400px;
+    width:350px;
+    height:100%;
+    background:#111;
+    padding:20px;
+    transition:0.4s;
+    z-index:999;
+}
+
+.form-box.active{
+    left:0;
+}
+
+.form-box h2{
+    margin-bottom:15px;
+}
+
+.form-box input,
+.form-box textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:5px;
+}
+
+.form-box button{
+    width:100%;
+    padding:12px;
+    background:#7ED957;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* BOTÃO FIXO */
+.orcamento-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#7ED957;
+    padding:15px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>Máquinas de Café Profissionais</h1>
+<button class="btn" onclick="openForm()">Solicitar Orçamento</button>
+</div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section">
+<h2>Nossos Serviços</h2>
+<div class="cards">
+
+<div class="card">Manutenção especializada</div>
+<div class="card">Venda de máquinas</div>
+<div class="card">Locação prática e econômica</div>
+
+</div>
+</section>
+
+<!-- FORMULÁRIO -->
+<div class="form-box" id="formBox">
+<h2>Solicitar Orçamento</h2>
+
+<input type="text" placeholder="Seu nome">
+<input type="tel" placeholder="Telefone">
+<input type="email" placeholder="Email">
+<textarea placeholder="Descreva o que precisa"></textarea>
+
+<button onclick="enviar()">Enviar</button>
+<button onclick="closeForm()" style="margin-top:10px;background:#444;color:#fff;">Fechar</button>
+
+</div>
+
+<!-- BOTÃO FIXO -->
+<div class="orcamento-btn" onclick="openForm()">
+💬 Orçamento
+</div>
+
+<script>
+function openForm(){
+    document.getElementById("formBox").classList.add("active");
+}
+
+function closeForm(){
+    document.getElementById("formBox").classList.remove("active");
+}
+
+function enviar(){
+    alert("Orçamento enviado! Entraremos em contato.");
+}
+</script>
+
+</body>
+</html>
