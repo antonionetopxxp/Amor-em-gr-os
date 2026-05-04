@@ -12,156 +12,227 @@
 
 body{background:#0a0a0a;color:#fff;overflow-x:hidden;}
 
+/* MENU */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#000;
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+z-index:1000;
+border-bottom:2px solid #7ED957;
+}
+
+.logo{font-weight:800;font-size:18px;color:#7ED957;}
+
+nav a{
+margin-left:15px;
+text-decoration:none;
+color:#fff;
+font-weight:600;
+}
+
+nav a:hover{color:#7ED957;}
+
 /* HERO */
 .hero{
-    height:100vh;
-    background:url('banner.png') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+height:100vh;
+background:url('banner.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:60px;
 }
 
 .hero h1{
-    font-size:40px;
-    text-shadow:0 0 20px #000;
+font-size:42px;
+text-shadow:0 0 20px #000;
+}
+
+.hero p{
+margin-top:10px;
+font-size:18px;
 }
 
 .btn{
-    margin-top:20px;
-    padding:15px 30px;
-    background:#7ED957;
-    color:#000;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-    border-radius:8px;
+margin-top:20px;
+padding:15px 30px;
+background:#7ED957;
+color:#000;
+font-weight:bold;
+border:none;
+cursor:pointer;
+border-radius:8px;
 }
 
-/* SERVIÇOS */
+/* SEÇÕES */
 .section{
-    padding:60px 20px;
-    text-align:center;
+padding:60px 20px;
+text-align:center;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
+background:#111;
+padding:20px;
+border-radius:10px;
 }
 
-/* FORM SLIDE */
+/* CTA */
+.cta{
+background:#7ED957;
+color:#000;
+padding:50px 20px;
+text-align:center;
+}
+
+.cta button{
+margin-top:15px;
+padding:15px 30px;
+border:none;
+background:#000;
+color:#fff;
+cursor:pointer;
+}
+
+/* FORM */
 .form-box{
-    position:fixed;
-    top:0;
-    left:-400px;
-    width:350px;
-    height:100%;
-    background:#111;
-    padding:20px;
-    transition:0.4s;
-    z-index:999;
+position:fixed;
+top:0;
+left:-400px;
+width:350px;
+height:100%;
+background:#111;
+padding:20px;
+transition:0.4s;
+z-index:9999;
 }
 
-.form-box.active{
-    left:0;
-}
-
-.form-box h2{
-    margin-bottom:15px;
-}
+.form-box.active{left:0;}
 
 .form-box input,
 .form-box textarea{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    border:none;
-    border-radius:5px;
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border:none;
+border-radius:5px;
 }
 
 .form-box button{
-    width:100%;
-    padding:12px;
-    background:#7ED957;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#7ED957;
+border:none;
+font-weight:bold;
+cursor:pointer;
 }
 
-/* BOTÃO FIXO */
-.orcamento-btn{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:#7ED957;
-    padding:15px;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:bold;
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
+font-size:22px;
 }
 
+/* ESPAÇO MENU FIXO */
+.spacer{height:70px;}
 </style>
 </head>
 
 <body>
 
+<!-- MENU -->
+<header>
+<div class="logo">☕ Amor em Grãos</div>
+<nav>
+<a href="#">Início</a>
+<a href="#servicos">Serviços</a>
+<a href="#contato">Contato</a>
+</nav>
+</header>
+
+<div class="spacer"></div>
+
 <!-- HERO -->
 <section class="hero">
 <div>
 <h1>Máquinas de Café Profissionais</h1>
+<p>Venda, locação e manutenção especializada</p>
 <button class="btn" onclick="openForm()">Solicitar Orçamento</button>
 </div>
 </section>
 
 <!-- SERVIÇOS -->
-<section class="section">
-<h2>Nossos Serviços</h2>
+<section class="section" id="servicos">
+<h2>🔥 Nossos Serviços</h2>
 <div class="cards">
 
 <div class="card">Manutenção especializada</div>
-<div class="card">Venda de máquinas</div>
+<div class="card">Venda das melhores máquinas</div>
 <div class="card">Locação prática e econômica</div>
 
 </div>
 </section>
 
-<!-- FORMULÁRIO -->
+<!-- CTA -->
+<section class="cta">
+<h2>📢 Quer uma máquina de café no seu negócio?</h2>
+<p>Atendimento rápido e personalizado</p>
+<button onclick="openForm()">Pedir orçamento agora</button>
+</section>
+
+<!-- FORM -->
 <div class="form-box" id="formBox">
 <h2>Solicitar Orçamento</h2>
 
-<input type="text" placeholder="Seu nome">
-<input type="tel" placeholder="Telefone">
-<input type="email" placeholder="Email">
-<textarea placeholder="Descreva o que precisa"></textarea>
+<input type="text" id="nome" placeholder="Seu nome">
+<input type="tel" id="fone" placeholder="Telefone">
+<textarea id="msg" placeholder="Descreva o que precisa"></textarea>
 
-<button onclick="enviar()">Enviar</button>
+<button onclick="enviar()">Enviar via WhatsApp</button>
 <button onclick="closeForm()" style="margin-top:10px;background:#444;color:#fff;">Fechar</button>
-
 </div>
 
-<!-- BOTÃO FIXO -->
-<div class="orcamento-btn" onclick="openForm()">
-💬 Orçamento
+<!-- WHATSAPP -->
+<div class="whatsapp" onclick="whats()">
+📲
 </div>
 
 <script>
 function openForm(){
-    document.getElementById("formBox").classList.add("active");
+document.getElementById("formBox").classList.add("active");
 }
 
 function closeForm(){
-    document.getElementById("formBox").classList.remove("active");
+document.getElementById("formBox").classList.remove("active");
 }
 
 function enviar(){
-    alert("Orçamento enviado! Entraremos em contato.");
+let nome = document.getElementById("nome").value;
+let fone = document.getElementById("fone").value;
+let msg = document.getElementById("msg").value;
+
+let texto = `Olá, quero orçamento:%0A Nome: ${nome}%0A Telefone: ${fone}%0A Pedido: ${msg}`;
+
+window.open("https://wa.me/5561991057795?text="+texto);
+}
+
+function whats(){
+window.open("https://wa.me/5561991057795");
 }
 </script>
 
